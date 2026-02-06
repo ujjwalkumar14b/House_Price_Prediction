@@ -1,0 +1,10 @@
+Flask
+Jinja2
+joblib
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+scipy
+sklearn
