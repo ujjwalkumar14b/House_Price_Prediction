@@ -13,7 +13,7 @@ House prices are influenced by multiple factors such as location, size, amenitie
 - To prepare the model for deployment in real-world applications
 
 ## Project Structure
-
+```
 House_Price_Prediction/
 │
 ├── data/
@@ -38,6 +38,7 @@ House_Price_Prediction/
 ├── requirements.txt        # Project dependencies
 ├── README.md               # Project documentation
 └── .gitignore
+```
 
 ## Machine Learning Workflow
 
