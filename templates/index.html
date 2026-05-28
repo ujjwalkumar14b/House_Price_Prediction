@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">House Price Prediction</h2>
+        <form action="/predict" method="post" class="row g-3">
+
+            <!-- Numerical Inputs -->
+            <div class="col-md-3">
+                <label>Lot Area (Min: 1300 | Max: 215245)</label>
+                <input type="number" name="LotArea" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label>Lot Frontage (Min: 21 | Max: 313)</label>
+                <input type="number" step="0.01" name="LotFrontage" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label>Overall Quality (Range: 1 - 10)</label>
+                <input type="number" name="OverallQual" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label>Overall Condition (Range: 1 - 10)</label>
+                <input type="number" name="OverallCond" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label>Year Built (Min: 1872 | Max: 2010)</label>
+                <input type="number" name="YearBuilt" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label>Year Remodeled (Min: 1950 | Max: 2010)</label>
+                <input type="number" name="YearRemodAdd" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label>Ground Living Area (Min: 334 | Max: 5642)</label>
+                <input type="number" name="GrLivArea" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label>Total Basement SF (Min: 0 | Max: 6110)</label>
+                <input type="number" name="TotalBsmtSF" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label>Garage Area (Min: 0 | Max: 1488)</label>
+                <input type="number" name="GarageArea" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label>Garage Cars (Min: 0 | Max: 5)</label>
+                <input type="number" name="GarageCars" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label>Full Bathrooms (Min: 0 | Max: 4)</label>
+                <input type="number" name="FullBath" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label>Total Rooms Above Ground (Min: 2 | Max: 15)</label>
+                <input type="number" name="TotRmsAbvGrd" class="form-control">
+            </div>
+
+            <!-- Categorical Inputs -->
+            <div class="col-md-3">
+                <label>MS Zoning</label>
+                <select name="MSZoning" class="form-control">
+                    <option>RL</option>
+                    <option>RM</option>
+                    <option>FV</option>
+                    <option>RH</option>
+                    <option>C (all)</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Street</label>
+                <select name="Street" class="form-control">
+                    <option>Pave</option>
+                    <option>Grvl</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Lot Shape</label>
+                <select name="LotShape" class="form-control">
+                    <option>Reg</option>
+                    <option>IR1</option>
+                    <option>IR2</option>
+                    <option>IR3</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Neighborhood</label>
+                <select name="Neighborhood" class="form-control">
+                    <option>NAmes</option>
+                    <option>CollgCr</option>
+                    <option>OldTown</option>
+                    <option>Edwards</option>
+                    <option>Somerst</option>
+                    <option>Gilbert</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>House Style</label>
+                <select name="HouseStyle" class="form-control">
+                    <option>1Story</option>
+                    <option>2Story</option>
+                    <option>1.5Fin</option>
+                    <option>SLvl</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Foundation</label>
+                <select name="Foundation" class="form-control">
+                    <option>PConc</option>
+                    <option>CBlock</option>
+                    <option>BrkTil</option>
+                    <option>Slab</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Heating QC</label>
+                <select name="HeatingQC" class="form-control">
+                    <option>Ex</option>
+                    <option>Gd</option>
+                    <option>TA</option>
+                    <option>Fa</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Kitchen Quality</label>
+                <select name="KitchenQual" class="form-control">
+                    <option>Ex</option>
+                    <option>Gd</option>
+                    <option>TA</option>
+                    <option>Fa</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Garage Finish</label>
+                <select name="GarageFinish" class="form-control">
+                    <option>Fin</option>
+                    <option>RFn</option>
+                    <option>Unf</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Sale Condition</label>
+                <select name="SaleCondition" class="form-control">
+                    <option>Normal</option>
+                    <option>Partial</option>
+                    <option>Abnorml</option>
+                    <option>Family</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-12 text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Predict</button>
+            </div>
+
+        </form>
+
+        <!-- Prediction Result -->
+        <div class="mt-5 text-center">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+    </div>
+</body>
+</html>
